@@ -4,10 +4,10 @@ from dotenv import load_dotenv
 import csv
 import json
 
-INPUT_CSV = "input/Rerecords/southern_2.csv"
+INPUT_CSV = "input/Rerecords/new.csv"
 OUTPUT_DIR = "output/Southern Rerecords"
 
-BATCH_NAME = "southern_2"
+BATCH_NAME = "Southern_new"
 
 # only need to change the 3 above here for each batch
 

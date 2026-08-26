@@ -5,7 +5,7 @@ import base64
 import json
 import os
 
-load_dotenv() # Still requires a GEMINI_API_KEY environment variable
+load_dotenv() # Requires the GEMINI_API_KEY environment variable
 
 # BATCH_NAME = "test_batch"
 # BATCH_NAME = "one_syllable_pseudo_candidates"
@@ -18,7 +18,13 @@ load_dotenv() # Still requires a GEMINI_API_KEY environment variable
 # BATCH_NAME = "Southern_one_syllable_real"
 # BATCH_NAME = "GA_rerecords"
 # BATCH_NAME = "Southern_rerecords"
-BATCH_NAME = "GA_re2"
+# BATCH_NAME = "GA_re2"
+# BATCH_NAME = "southern_2"
+# BATCH_NAME = "southern_3"
+BATCH_NAME = "Southern_new"
+# BATCH_NAME = "GA_new"
+
+
 
 JOB_INFO_FILE = f"batch_data/{BATCH_NAME}_job_info.json"
 
