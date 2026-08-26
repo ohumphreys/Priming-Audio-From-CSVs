@@ -1,7 +1,7 @@
 Prime,Target,Prime Syllables,Target Syllables,Target Type,Trial Type,isPrimed
 GUN,Feam,1,1,pseudo,filler,FALSE
 STEER,Jums,1,1,pseudo,filler,FALSE
-BLOCK,Bems,1,1,pseudo,filler,FALSE
+BLOCK,Vo,1,1,pseudo,filler,FALSE
 WEST,Reast,1,1,pseudo,filler,FALSE
 TRICK,Lish,1,1,pseudo,filler,FALSE
 DRAG,Harn,1,1,pseudo,filler,FALSE
@@ -46,7 +46,7 @@ OUT,Dro,1,1,pseudo,filler,FALSE
 HIM,Drap,1,1,pseudo,filler,FALSE
 RAYS,Glames,1,1,pseudo,filler,FALSE
 BLEACH,Pode,1,1,pseudo,filler,FALSE
-BUY,Wem,1,1,pseudo,filler,FALSE
+BUY,Shray,1,1,pseudo,filler,FALSE
 HIVE,Leld,1,1,pseudo,filler,FALSE
 TRAIL,Deeg,1,1,pseudo,filler,FALSE
 CORPSE,Cortist,1,2,pseudo,filler,FALSE
@@ -96,7 +96,7 @@ TEAR,Randers,1,2,pseudo,filler,FALSE
 ZEST,Lisal,1,2,pseudo,filler,FALSE
 PISSED,Preduth,1,2,pseudo,filler,FALSE
 PHASE,Mynup,1,2,pseudo,filler,FALSE
-MISS,Conglil,1,2,pseudo,filler,FALSE
+MISS,Renerk,1,2,pseudo,filler,FALSE
 SQUEAK,Fatcher,1,2,pseudo,filler,FALSE
 TOUCH,Pateeves,1,2,pseudo,filler,FALSE
 NUMBER,Lund,2,1,pseudo,filler,FALSE
@@ -109,7 +109,7 @@ PICTURE,Streed,2,1,pseudo,filler,FALSE
 MAYBE,Weg,2,1,pseudo,filler,FALSE
 TRIUMPH,Spope,2,1,pseudo,filler,FALSE
 RUBBER,Sove,2,1,pseudo,filler,FALSE
-POLISH,Lench,2,1,pseudo,filler,FALSE
+POLISH,Blape,2,1,pseudo,filler,FALSE
 BABY,Graw,2,1,pseudo,filler,FALSE
 COVER,Waipse,2,1,pseudo,filler,FALSE
 OCEAN,Dacks,2,1,pseudo,filler,FALSE
@@ -154,7 +154,7 @@ SELFISH,Ascute,2,2,pseudo,filler,FALSE
 BRISTLE,Toding,2,2,pseudo,filler,FALSE
 SHOWER,Concume,2,2,pseudo,filler,FALSE
 HUSBAND,Trabbor,2,2,pseudo,filler,FALSE
-TOPPING,Enstence,2,2,pseudo,filler,FALSE
+TOPPING,Sether,2,2,pseudo,filler,FALSE
 SHATTER,Spooway,2,2,pseudo,filler,FALSE
 SHALLOW,Ozam,2,2,pseudo,filler,FALSE
 DAIRY,Indlinch,2,2,pseudo,filler,FALSE
