@@ -4,15 +4,17 @@ from dotenv import load_dotenv
 import csv
 import json
 
-INPUT_CSV = "input/One Syllable Real.csv"
-OUTPUT_DIR = "output/Southern/Real/One Syllable"
+INPUT_CSV = "input/GA Rerecords.csv"
+OUTPUT_DIR = "output/GA Rerecords"
 
-BATCH_NAME = "Southern_one_syllable_real"
+BATCH_NAME = "GA_rerecords"
 
 # only need to change the 3 above here for each batch
 
-VOICE = "Enceladus"
-PROMPT = "Say the following word clearly in a southern american accent: "
+# VOICE = "Enceladus"
+VOICE = "Zephyr"
+# PROMPT = "Say the following word clearly in a southern american accent: "
+PROMPT = "Say the following word clearly in a general american accent: "
 
 # change the two above here to modify the condition
 
