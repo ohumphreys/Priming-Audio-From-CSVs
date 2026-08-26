@@ -4,19 +4,26 @@ from dotenv import load_dotenv
 import csv
 import json
 
-INPUT_CSV = "input/GA Rerecords.csv"
-OUTPUT_DIR = "output/GA Rerecords"
+INPUT_CSV = "input/Rerecords/southern_2.csv"
+OUTPUT_DIR = "output/Southern Rerecords"
 
-BATCH_NAME = "GA_rerecords"
+BATCH_NAME = "southern_2"
 
 # only need to change the 3 above here for each batch
 
-# VOICE = "Enceladus"
-VOICE = "Zephyr"
-# PROMPT = "Say the following word clearly in a southern american accent: "
-PROMPT = "Say the following word clearly in a general american accent: "
+type = 'south'
+# type = 'ga'
 
-# change the two above here to modify the condition
+if type == 'south':
+    VOICE = "Enceladus"
+    PROMPT = "Say the following word clearly in a southern american accent: "
+elif type == 'ga':
+    VOICE = "Zephyr"
+    PROMPT = "Say the following word clearly in a general american accent: "
+else:
+   raise ValueError(f'type is {type}, should be south or ga')
+
+# change the one above here to modify the condition
 
 REQUESTS_FILE = f"batch_data/{BATCH_NAME}_requests.jsonl"
 JOB_INFO_FILE = f"batch_data/{BATCH_NAME}_job_info.json"

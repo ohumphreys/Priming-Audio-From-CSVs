@@ -16,8 +16,9 @@ load_dotenv() # Still requires a GEMINI_API_KEY environment variable
 # BATCH_NAME = "Southern_one_syllable_pseudo"
 # BATCH_NAME = "Southern_two_syllable_pseudo"
 # BATCH_NAME = "Southern_one_syllable_real"
-BATCH_NAME = "GA_rerecords"
+# BATCH_NAME = "GA_rerecords"
 # BATCH_NAME = "Southern_rerecords"
+BATCH_NAME = "GA_re2"
 
 JOB_INFO_FILE = f"batch_data/{BATCH_NAME}_job_info.json"
 
