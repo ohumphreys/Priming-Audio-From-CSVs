@@ -21,8 +21,8 @@ load_dotenv() # Requires the GEMINI_API_KEY environment variable
 # BATCH_NAME = "GA_re2"
 # BATCH_NAME = "southern_2"
 # BATCH_NAME = "southern_3"
-BATCH_NAME = "Southern_new"
-# BATCH_NAME = "GA_new"
+# BATCH_NAME = "Southern_new"
+BATCH_NAME = "GA_new"
 
 
 
