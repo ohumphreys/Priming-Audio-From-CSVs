@@ -8,10 +8,10 @@
 
 form Scale intensity
 	comment Directory of sound files
-	text sound_directory ./1. Flattened Output/
+	text sound_directory ./1. Flattened Output/GA/
 	sentence Sound_file_extension .wav
 	comment Directory for resulting files
-	text end_directory ./2. First Normalization/
+	text end_directory ./2. First Normalization/GA/
 	comment Scale to what intensity
 	positive intensity 60.0
 endform

@@ -1,13 +1,9 @@
 form Align silences
-    sentence Input_folder ./2. First Normalization/
-    sentence Output_folder ./3. Trim/
-    positive Pre_onset_ms 100
-    positive Total_duration_ms 2500
-    positive Intensity_threshold_dB 50
+    sentence Input_folder ./2. First Normalization/GA/
+    sentence Output_folder ./3. Trim/GA/
+    positive Onset_threshold_dB 50
+    positive Offset_threshold_dB 40
 endform
-
-preOnset = pre_onset_ms / 1000
-totalDuration = total_duration_ms / 1000
 
 # Create output directory if necessary
 createDirectory: output_folder$
@@ -26,83 +22,50 @@ for i from 1 to nFiles
     sound = Read from file: input_folder$ + "/" + fileName$
     endTime = Get total duration
 
-    # Create intensity contour
-    To Intensity: 75, 0, "yes"
+    # Create intensity contour. Time step is set explicity to 2ms
+    To Intensity: 75, 0.002, "yes"
     intensity = selected("Intensity")
 
-    # Define onset threshold
-	threshold = intensity_threshold_dB
-
-    # Find first intensity frame above threshold
+    # Find the first frame above the onset threshold and the last frame
+    # above the offset threshold, i.e. the onset and offset of speech.
+    # Scan forward once: onset is set only the first time its threshold
+    # is met, while offset keeps getting overwritten, so it ends up as
+    # the time of the last frame that met the offset threshold.
     nFrames = Get number of frames
     onset = undefined
+    offset = undefined
 
     for j from 1 to nFrames
-    		value = Get value in frame: j
+        value = Get value in frame: j
 
-    		if onset = undefined
-        		if value <> undefined
-            		if value >= threshold
-                		onset = Get time from frame number: j
-            		endif
-        		endif
-    		endif
-	endfor
+        if value <> undefined
+            if value >= onset_threshold_dB
+                if onset = undefined
+                    onset = Get time from frame number: j
+                endif
+            endif
+            if value >= offset_threshold_dB
+                offset = Get time from frame number: j
+            endif
+        endif
+    endfor
 
     if onset <> undefined
 
-        # Keep 100 ms before detected onset
-        startTime = onset - preOnset
+        selectObject: sound
+        Extract part: onset, endTime, "rectangular", 1, "no"
+        trimmed = selected("Sound")
 
-        if startTime >= 0
-            selectObject: sound
-            Extract part: startTime, endTime, "rectangular", 1, "no"
-            trimmed = selected("Sound")
-        else
-            # Original recording doesn't have a full 100 ms lead-in;
-            # generate synthetic silence to pad it out so the result
-            # always starts with exactly preOnset ms of silence.
-            padDuration = preOnset - onset
+        # offset is in the original sound's time axis; shift it
+        # into the trimmed sound's time axis.
+        offsetInTrimmed = offset - onset
 
-            selectObject: sound
-            Extract part: 0, endTime, "rectangular", 1, "no"
-            clipped = selected("Sound")
-
-            sampleRate = Get sampling frequency
-            silence = Create Sound from formula: "silence", 1, 0, padDuration, sampleRate, "0"
-
-            selectObject: silence, clipped
-            Concatenate
-            trimmed = selected("Sound")
-
-            removeObject: silence, clipped
-        endif
-
-        # Ensure the file is always exactly totalDuration long by
-        # padding with trailing silence or trimming the tail.
+        # Trim off any trailing silence after the last detected speech.
         selectObject: trimmed
-        currentDuration = Get total duration
+        Extract part: 0, offsetInTrimmed, "rectangular", 1, "no"
+        final = selected("Sound")
 
-        if currentDuration < totalDuration
-            padEnd = totalDuration - currentDuration
-            sampleRate = Get sampling frequency
-
-            silenceEnd = Create Sound from formula: "silenceEnd", 1, 0, padEnd, sampleRate, "0"
-
-            selectObject: trimmed, silenceEnd
-            Concatenate
-            final = selected("Sound")
-
-            removeObject: silenceEnd, trimmed
-        elsif currentDuration > totalDuration
-            selectObject: trimmed
-            Extract part: 0, totalDuration, "rectangular", 1, "no"
-            final = selected("Sound")
-
-            removeObject: trimmed
-        else
-            final = trimmed
-        endif
+        removeObject: trimmed
 
         selectObject: final
         Save as WAV file: output_folder$ + "/" + fileName$
